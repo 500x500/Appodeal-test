@@ -1,1 +1,30 @@
-<p>token-form works!</p>
+
+
+<h1>Hi Appodeal!</h1>
+
+<div class="token-form">
+  <tui-island size="l" textAlign="center">
+    <div class="tui-island__content">
+      <figure class="tui-island__figure">
+        <div class="some-figure"></div>
+      </figure>
+      <div>
+        <h3 class="tui-island__title">Введите токен</h3>
+        <tui-input class="tui-island__paragraph"
+                   [formControl]="tokenControl"
+                   [tuiTextfieldLabelOutside]="true"
+                   [tuiTextfieldSize]="'m'"></tui-input>
+        <button
+          tuiButton
+          type="button"
+          appearance="flat"
+          size="m"
+          class="tui-island__footer-button"
+          (click)="routeToLifeSearch()"
+        >
+          Далее
+        </button>
+      </div>
+    </div>
+  </tui-island>
+</div>
