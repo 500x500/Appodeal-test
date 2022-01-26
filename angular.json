@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "5d8495fe-2be8-4c7e-a59a-07743b14a337"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -24,9 +27,16 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              }
             ],
             "styles": [
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "src/styles.css"
             ],
             "scripts": []
