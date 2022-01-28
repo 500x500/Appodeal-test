@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TuiNotification, TuiNotificationsService} from '@taiga-ui/core';
@@ -6,7 +6,8 @@ import {TuiNotification, TuiNotificationsService} from '@taiga-ui/core';
 @Component({
   selector: 'app-token-form',
   templateUrl: './token-form.component.html',
-  styleUrls: ['./token-form.component.css']
+  styleUrls: ['./token-form.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TokenFormComponent implements OnInit {
   constructor(
@@ -18,7 +19,9 @@ export class TokenFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   // 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
+
   routeToLifeSearch(): void {
     if (this.tokenControl.valid) {
       localStorage.setItem('token', this.tokenControl.value);
