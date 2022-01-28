@@ -1,0 +1,13 @@
+:host {
+  padding: 1em;
+}
+
+.island-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.island-header {
+  display: flex;
+  justify-content: space-between;
+}

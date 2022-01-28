@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Repositories, Reps} from './models';
+import {map, Observable} from 'rxjs';
 import {Apollo, gql} from 'apollo-angular';
+import {Repository} from './models';
 
 const SEARCH_QUERY = gql`
           query GetRepositories($searchString: String!) {
@@ -34,12 +34,11 @@ const SEARCH_QUERY = gql`
 @Injectable()
 export class LifeSearchService {
   constructor(
-    private repositories: Repositories,
     private apollo: Apollo
   ) {
   }
 
-  getRepository(repositoryName: any): Observable<any> {
+  getRepository(repositoryName: string): Observable<Repository[]> {
     return this.apollo
       .watchQuery({
         query: SEARCH_QUERY,
@@ -47,9 +46,10 @@ export class LifeSearchService {
           searchString: repositoryName,
         },
       })
-      .valueChanges.pipe();
-    // return this.repositories.watch({
-    //   search: repositoryName,
-    // }).valueChanges.pipe();
+      .valueChanges.pipe(
+        map((repositories: any) => {
+          return repositories.data.search.nodes;
+        }),
+      );
   }
 }
