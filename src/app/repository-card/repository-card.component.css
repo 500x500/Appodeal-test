@@ -11,3 +11,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+.star-container {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  overflow: hidden;
+}
+
+.island-header__text {
+  overflow: hidden;
+}
+
+.island-header__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}

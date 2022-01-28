@@ -1,24 +1,29 @@
 <tui-island>
   <div class="island-content">
     <div class="island-header">
-      <div>
+      <div class="island-header__text">
         <h3 class="tui-island__title">{{repositoryData?.name}}</h3>
         <p class="tui-island__category">{{repositoryData?.description}}</p>
       </div>
 
-     <div>
-       <tui-avatar class="tui-island__figure" text="Batman" [avatarUrl]="repositoryData?.owner?.avatarUrl!"></tui-avatar>
+     <div  class="island-header__avatar">
+       <tui-avatar class="tui-island__figure" [avatarUrl]="repositoryData?.owner?.avatarUrl!"></tui-avatar>
        <p class="tui-island__category">{{repositoryData?.owner?.name}}</p>
      </div>
     </div>
 
-    <a [href]="repositoryData?.url" tuiLink>{{repositoryData?.url}}</a>
-    <p>Дата последнего релиза: {{repositoryData?.latestRelease?.createdAt ?
-                                (repositoryData?.latestRelease?.createdAt | date: 'dd.MM.yyyy')
-                                : 'Отсутствует'}}</p>
+    <div style="overflow: hidden">
+      <a class="tui-island__paragraph_link" [href]="repositoryData?.url" tuiLink>{{repositoryData?.url}}</a>
+      <p>Дата последнего релиза: {{repositoryData?.latestRelease?.createdAt ?
+        (repositoryData?.latestRelease?.createdAt | date: 'dd.MM.yyyy')
+        : 'Отсутствует'}}</p>
 
-    <p class="tui-island__category">
-      <tui-svg [src]="'tuiIconStar'"></tui-svg>
-      {{repositoryData?.stargazerCount}}</p>
+    </div>
+
+    <div class="star-container">
+      <p class="tui-island__category">
+        <tui-svg [src]="'tuiIconStar'"></tui-svg>
+        {{repositoryData?.stargazerCount}}</p>
+    </div>
   </div>
 </tui-island>

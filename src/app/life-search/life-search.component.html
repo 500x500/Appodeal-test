@@ -3,7 +3,7 @@
   Поиск
 </tui-input>
 
-<div class="tui-container">
+<div class="tui-container_adaptive repository-container">
   <div class="tui-row">
     <div *ngFor="let repository of repositories$ | async" class="tui-col_md-4 tui-col_lg-4">
         <app-repository-card [repositoryData]="repository"></app-repository-card>
