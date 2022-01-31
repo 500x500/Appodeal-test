@@ -20,15 +20,12 @@ export class TokenFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // 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
-
   routeToLifeSearch(): void {
     if (this.tokenControl.valid) {
       localStorage.setItem('token', this.tokenControl.value);
       this.router.navigate(['../life-search']);
     } else {
     this.notificationService.show('Введите, пожалуйста, токен', {
-      // label: 'Введите, пожалуйста, токен',
       status: TuiNotification.Error,
     })
       .subscribe();

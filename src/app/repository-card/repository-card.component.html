@@ -12,12 +12,11 @@
      </div>
     </div>
 
-    <div style="overflow: hidden">
+    <div class="link">
       <a class="tui-island__paragraph_link" [href]="repositoryData?.url" tuiLink>{{repositoryData?.url}}</a>
       <p>Дата последнего релиза: {{repositoryData?.latestRelease?.createdAt ?
         (repositoryData?.latestRelease?.createdAt | date: 'dd.MM.yyyy')
         : 'Отсутствует'}}</p>
-
     </div>
 
     <div class="star-container">
